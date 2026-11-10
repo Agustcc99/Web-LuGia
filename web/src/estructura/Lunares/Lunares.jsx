@@ -1,4 +1,5 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
+import { cuandoHayaCalma } from '@/utilidades/calma.js'
 import { gsap, sinMovimiento } from '@/utilidades/gsap.js'
 import { lunares, tiposConDibujo } from './datos.js'
 import Patron from './Patron.jsx'
@@ -20,21 +21,24 @@ function estiloDe(l) {
 export default function Lunares() {
   const raiz = useRef(null)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (sinMovimiento()) return
-    const ctx = gsap.context(() => {
-      gsap.utils.toArray('[data-lunar]').forEach((el, i) => {
+    let ctx
+    // Son puro adorno: el movimiento arranca cuando la página ya cargó y el navegador tiene un momento libre.
+    const cancelar = cuandoHayaCalma(() => {
+      ctx = gsap.context(() => {
+        const elementos = gsap.utils.toArray('[data-lunar]')
         // Mecido de costado, para siempre.
-        gsap.to(el, { x: (i % 2 ? 1 : -1) * (6 + (i % 4) * 3), duration: 4 + (i % 5), ease: 'sine.inOut', repeat: -1, yoyo: true })
-        // Corrimiento vertical según el scroll.
-        gsap.to(el, {
-          y: (i % 2 ? -1 : 1) * (40 + (i % 5) * 25),
-          ease: 'none',
-          scrollTrigger: { trigger: document.body, start: 'top top', end: 'bottom bottom', scrub: 0.8 },
-        })
-      })
-    }, raiz)
-    return () => ctx.revert()
+        elementos.forEach((el, i) => gsap.to(el, { x: (i % 2 ? 1 : -1) * (6 + (i % 4) * 3), duration: 4 + (i % 5), ease: 'sine.inOut', repeat: -1, yoyo: true }))
+        // Corrimiento vertical según el scroll: un solo seguimiento del scroll para todos, cada uno con su recorrido.
+        const recorrido = gsap.timeline({ scrollTrigger: { trigger: document.body, start: 'top top', end: 'bottom bottom', scrub: 0.8 } })
+        elementos.forEach((el, i) => recorrido.to(el, { y: (i % 2 ? -1 : 1) * (40 + (i % 5) * 25), ease: 'none', duration: 1 }, 0))
+      }, raiz)
+    })
+    return () => {
+      cancelar()
+      ctx?.revert()
+    }
   }, [])
 
   return (

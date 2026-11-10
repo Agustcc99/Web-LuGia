@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { coloresCursor } from '@/utilidades/coloresCursor.js'
 import { sinMovimiento } from '@/utilidades/gsap.js'
 
@@ -8,11 +8,23 @@ const SplashCursor = lazy(() => import('@/piezas/SplashCursor.jsx'))
 // Tinta de colores que deja el mouse al moverse, y un salpicón al hacer clic.
 // En el celular no deja tinta al deslizar el dedo (para no pintar al hacer scroll): solo hace el salpicón con un toque.
 // No se carga si la persona pidió "reducir movimiento".
+// Para no frenar la carga de la página, el efecto recién se baja y arranca cuando la persona mueve el mouse o toca la pantalla
+// por primera vez (ese primer toque no salpica).
 // Los colores son los de la gama de la página (utilidades/coloresCursor.js); sin gama, los de la marca (vino y rosas).
 // El tema es "light" porque el fondo de la página es claro.
 // zIndex 30: queda por encima del contenido pero debajo del menú (40) y de los botones flotantes (50).
 export default function CursorFluido({ gama }) {
-  if (sinMovimiento()) return null
+  const [activo, setActivo] = useState(false)
+
+  useEffect(() => {
+    if (sinMovimiento()) return
+    const activar = () => setActivo(true)
+    const eventos = ['pointermove', 'pointerdown', 'touchstart']
+    eventos.forEach((evento) => window.addEventListener(evento, activar, { once: true, passive: true }))
+    return () => eventos.forEach((evento) => window.removeEventListener(evento, activar))
+  }, [])
+
+  if (!activo) return null
   const colores = coloresCursor[gama] ?? coloresCursor.vino
 
   return (
