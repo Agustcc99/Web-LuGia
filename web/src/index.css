@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+/* Acá están los colores y las curvas de movimiento del sitio: es el único lugar para cambiar la identidad visual.
+   LuGia: fondo blanco, vino/bordó como color de marca y rosas claros en los bloques alternados.
+   Cada valor de @theme se usa en las clases de Tailwind: --color-brand → bg-brand, text-brand, etc. */
+@theme {
+  --color-fondo: #ffffff;
+  --color-superficie: #fbf2f4; /* rosa muy claro: bloques alternados y fondos de tarjetas */
+  --color-texto: #2b1620;
+  --color-suave: #5c4650; /* texto secundario: ≥ 4.5:1 sobre blanco y sobre rosa */
+  --color-borde: #ecd9de; /* borde rosado (tarjetas) */
+  --color-linea: #efe3e6; /* filetes finos sobre blanco */
+  --color-borde-fuerte: #d8c3c9; /* contorno de chips, campos y botones secundarios */
+  --color-brand: #7a1f3d;
+  --color-brand-oscuro: #5c1730; /* hover de botones y texto sobre tinte */
+  --color-sobre-brand: #ffffff; /* texto sobre botones brand: contraste ≥ 4.5:1 */
+  --color-tinte: #f9e4ea; /* rosa claro: fondos de íconos y etiquetas */
+  --color-arco: #e3a9bb; /* contorno fino detrás de las fotos en arco */
+  --color-acento: #a23b5e;
+  --color-resalte: #f4a9c0; /* rosa de detalle: filetes y acentos sobre el vino */
+  --color-sobre-resalte: #2b1620;
+  --color-whatsapp: #25d366;
+  --color-sobre-whatsapp: #052e16; /* el blanco sobre el verde de WhatsApp no llega a 4.5:1 */
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif; /* títulos */
+
+  /* Curvas de velocidad de las animaciones. Son las mismas de src/lib/movimiento.js. Uso: ease-entrar, ease-tocar… */
+  --ease-entrar: cubic-bezier(0.16, 1, 0.3, 1); /* llega rápido y se posa despacio: apariciones */
+  --ease-pasar: cubic-bezier(0.65, 0, 0.35, 1); /* simétrica: cambio de paso del formulario, acordeón */
+  --ease-salir: cubic-bezier(0.4, 0, 1, 1); /* se va sin frenar: salidas */
+  --ease-tocar: cubic-bezier(0.3, 0.7, 0.4, 1); /* respuesta corta: hover, chips, botones */
+  --ease-respirar: cubic-bezier(0.25, 0.6, 0.15, 1); /* larga y suave: solo la foto de la portada */
+  --ease-resorte: linear(0, 0.38 9%, 0.84 20%, 1.04 31%, 1.03 42%, 1 56%, 1); /* resorte amortiguado: botones */
+}
+
+/* Gamas de color de las páginas de tratamientos. Cada una cambia los mismos nombres de arriba, solo dentro de esa página:
+   el menú y el pie siguen en vino. Se piden desde contenido/paginas/ con `gama`. Contraste de 4.5:1 o más para el texto. */
+.gama-ciruela {
+  --color-superficie: #faf4fa;
+  --color-borde: #e8d9e8;
+  --color-linea: #efe5ef;
+  --color-borde-fuerte: #d2bfd2;
+  --color-brand: #6f3268;
+  --color-brand-oscuro: #44194a;
+  --color-tinte: #f2e4f1;
+  --color-arco: #d8a8d2;
+  --color-acento: #8e4a86;
+  --color-resalte: #e6bfe1;
+}
+
+/* Durazno de la guía de gamas de la marca: cambian los fondos y detalles, y el vino de la principal sigue en títulos y botones. */
+.gama-durazno {
+  --color-superficie: #fdeee6;
+  --color-borde: #f6dccf;
+  --color-linea: #f8e6dc;
+  --color-borde-fuerte: #e6c6b6;
+  --color-tinte: #f9d3c3;
+  --color-arco: #f4b09c;
+  --color-acento: #e8836c; /* solo dibujos y filetes: como texto no llega a 4.5:1 */
+  --color-resalte: #f4b09c;
+}
+
+/* Malva de la guía de gamas de la marca. Igual que durazno: cambian los fondos y detalles, y el vino de la principal sigue en títulos y botones.
+   El acento es más oscuro que el de la guía (#a2668f no llega a 4.5:1): se usa como texto en las etiquetas de las comparaciones. */
+.gama-malva {
+  --color-superficie: #f5ecf3;
+  --color-borde: #e6d3e2;
+  --color-linea: #eee2ec;
+  --color-borde-fuerte: #d3bccf;
+  --color-tinte: #ecdae8;
+  --color-arco: #c99bc6;
+  --color-acento: #86497a;
+  --color-resalte: #d9b8d4;
+}
+
+/* Bruma de la guía de gamas de la marca: azul grisáceo, la única gama fría. Los fondos y detalles cambian y el vino de la principal sigue en títulos y botones.
+   El acento es más oscuro que el de la guía (#7c90a6 no llega a 4.5:1): se usa como texto en las etiquetas de las comparaciones. */
+.gama-bruma {
+  --color-superficie: #f0f2f5;
+  --color-borde: #d9dfe7;
+  --color-linea: #e5e9ee;
+  --color-borde-fuerte: #b5c1cf;
+  --color-tinte: #e2e8ef;
+  --color-arco: #7c90a6;
+  --color-acento: #52667f;
+  --color-resalte: #c4cedb;
+}
+
+/* Damasco: durazno muy claro y algo rosado, para la página de limpieza (más claro que el durazno de endodoncia).
+   Los fondos y detalles cambian y el vino de la principal sigue en títulos y botones. La guía de gamas no la trae: los valores son propios.
+   El acento es un rosa terroso, cercano al vino, para poder usarlo como texto chico (6,2:1 sobre blanco, 5,4:1 sobre el tinte). */
+.gama-damasco {
+  --color-superficie: #fffaf5;
+  --color-borde: #f8e9da;
+  --color-linea: #fbf1e6;
+  --color-borde-fuerte: #ecd3bb;
+  --color-tinte: #feeee0;
+  --color-arco: #f2bf9b;
+  --color-acento: #9a4a3a;
+  --color-resalte: #f9dcc4;
+}
+
+/* Noche en versión clara, para la página de implantes: el azul violáceo de la noche de la guía, aclarado, con el rosa de la marca como detalle.
+   Los fondos y detalles cambian y el vino de la principal sigue en títulos y botones. Más violácea que bruma, que es gris azulado.
+   El acento es un índigo para texto y para el implante del dibujo (7,9:1 sobre blanco, 6,4:1 sobre el tinte). */
+.gama-noche {
+  --color-superficie: #f3f3fb;
+  --color-borde: #dddcf0;
+  --color-linea: #e9e8f5;
+  --color-borde-fuerte: #c0bfdf;
+  --color-tinte: #e7e6f6;
+  --color-arco: #9d9bcf;
+  --color-acento: #4b4a8c;
+  --color-resalte: #f1c9d8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Preguntas frecuentes: la caja se abre de golpe (así lo de abajo no salta) y la respuesta
+   se destapa de arriba hacia abajo con un fundido. Al cerrar no se anima. */
+@keyframes destapar {
+  from {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0);
+    opacity: 1;
+  }
+}
+details[open] > .respuesta {
+  animation: destapar 200ms var(--ease-entrar) both;
+}
+
+/* Ventana de cursos (secciones/Cursos.jsx): sube 12 px con un fundido; el fondo oscuro aparece con fundido. */
+@keyframes ventana-entra {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+@keyframes fondo-entra {
+  from {
+    opacity: 0;
+  }
+}
+.ventana-cursos[open] {
+  animation: ventana-entra 280ms var(--ease-entrar) both;
+}
+.ventana-cursos[open]::backdrop {
+  animation: fondo-entra 200ms var(--ease-entrar) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .ventana-cursos[open] {
+    animation: none;
+  }
+  .ventana-cursos[open]::backdrop {
+    animation: none;
+  }
+  details[open] > .respuesta {
+    animation: none;
+  }
+}
