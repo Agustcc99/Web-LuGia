@@ -21,10 +21,7 @@ export default function Servicios() {
           <Aparecer efecto="texto" className="max-w-2xl">
             <Titulo etiqueta={etiqueta}>{titulo}</Titulo>
           </Aparecer>
-          <a
-            {...enlaceWhatsapp()}
-            className="group hidden shrink-0 items-center gap-2 text-[17px] font-semibold text-brand hover:text-brand-oscuro md:inline-flex"
-          >
+          <a {...enlaceWhatsapp()} className="group hidden shrink-0 items-center gap-2 text-[17px] font-semibold text-brand hover:text-brand-oscuro md:inline-flex">
             {consultar}
             <Icono nombre="flecha" className={flecha} />
           </a>

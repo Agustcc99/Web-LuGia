@@ -11,7 +11,7 @@ const email = 'lucygianello@gmail.com'
 
 export const sitio = {
   nombre: 'LuGia',
-  logoIcono: '/logo-centrado.png',
+  logoIcono: '/logo-centrado.webp',
 
   whatsapp: { numero: '5493513938777', mensaje: 'Hola, quiero pedir un turno en LuGia.' },
 
@@ -29,8 +29,7 @@ export const sitio = {
   portada: {
     etiqueta: 'Odontología · Jardín Horizonte, Córdoba',
     titulo: 'Cuidamos tu sonrisa, con tiempo y cercanía.',
-    subtitulo:
-      'Endodoncia y odontología integral para niños y adultos. Turnos de 45 minutos a 1 hora, sin apuro.',
+    subtitulo: 'Endodoncia y odontología integral para niños y adultos. Turnos de 45 minutos a 1 hora, sin apuro.',
     boton: 'Pedir turno',
     imagen: '/fotos/sillon.webp',
     alt: 'Sillón odontológico del consultorio LuGia',
@@ -47,12 +46,43 @@ export const sitio = {
     consultar: 'Consultar por un tratamiento',
     verMas: 'Ver más',
     elementos: [
-      { icono: 'raiz', titulo: 'Endodoncias', descripcion: 'Tratamiento de conducto para conservar tu diente. Es el área en la que la Od. Gianello tiene más de 20 años de experiencia.', enlace: '/endodoncia', enlaceAyuda: 'sobre endodoncia' },
-      { icono: 'diente', titulo: 'Odontología integral', descripcion: 'Controles, arreglos, extracciones y plan de tratamiento para adultos. Odontopediatría para niños desde los 5 años.', enlacesEnTexto: [{ texto: 'Odontopediatría', ruta: '/odontopediatria' }] },
-      { icono: 'corona', titulo: 'Prótesis, pernos y coronas', descripcion: 'Coronas, pernos y prótesis para recuperar la comodidad al masticar y sonreír.', enlace: '/protesis-y-coronas', enlaceAyuda: 'sobre prótesis, pernos y coronas' },
+      {
+        icono: 'raiz',
+        titulo: 'Endodoncias',
+        descripcion: 'Tratamiento de conducto para conservar tu diente. Es el área en la que la Od. Gianello tiene más de 20 años de experiencia.',
+        enlace: '/endodoncia',
+        enlaceAyuda: 'sobre endodoncia',
+      },
+      {
+        icono: 'diente',
+        titulo: 'Odontología integral',
+        descripcion: 'Controles, arreglos, extracciones y plan de tratamiento para adultos. Odontopediatría para niños desde los 5 años.',
+        enlacesEnTexto: [{ texto: 'Odontopediatría', ruta: '/odontopediatria' }],
+      },
+      {
+        icono: 'corona',
+        titulo: 'Prótesis, pernos y coronas',
+        descripcion: 'Coronas, pernos y prótesis para recuperar la comodidad al masticar y sonreír.',
+        enlace: '/protesis-y-coronas',
+        enlaceAyuda: 'sobre prótesis, pernos y coronas',
+      },
       { icono: 'herramienta', titulo: 'Implantes', descripcion: 'Evaluamos tu caso y te explicamos las opciones para reponer dientes ausentes.', enlace: '/implantes', enlaceAyuda: 'sobre implantes' },
-      { icono: 'brillo', titulo: 'Blanqueamientos y limpiezas', descripcion: 'Limpiezas de control y blanqueamiento, previa evaluación de tu boca.', enlacesEnTexto: [{ texto: 'Limpiezas', ruta: '/limpieza-dental' }, { texto: 'blanqueamiento', ruta: '/blanqueamiento-dental' }] },
-      { icono: 'escudo', titulo: 'Placas de bruxismo y férulas', descripcion: 'Placas a medida para proteger tus dientes si apretás o rechinás, y férulas para trastornos de ATM, la articulación de la mandíbula.', enlace: '/placas-de-bruxismo', enlaceAyuda: 'sobre placas de bruxismo y férulas' },
+      {
+        icono: 'brillo',
+        titulo: 'Blanqueamientos y limpiezas',
+        descripcion: 'Limpiezas de control y blanqueamiento, previa evaluación de tu boca.',
+        enlacesEnTexto: [
+          { texto: 'Limpiezas', ruta: '/limpieza-dental' },
+          { texto: 'blanqueamiento', ruta: '/blanqueamiento-dental' },
+        ],
+      },
+      {
+        icono: 'escudo',
+        titulo: 'Placas de bruxismo y férulas',
+        descripcion: 'Placas a medida para proteger tus dientes si apretás o rechinás, y férulas para trastornos de ATM, la articulación de la mandíbula.',
+        enlace: '/placas-de-bruxismo',
+        enlaceAyuda: 'sobre placas de bruxismo y férulas',
+      },
       { icono: 'estrella', titulo: 'Estética dental', descripcion: 'Tratamientos para mejorar el aspecto de tu sonrisa de forma natural.' },
     ],
   },
@@ -71,14 +101,10 @@ export const sitio = {
   nosotros: {
     etiqueta: 'El consultorio',
     titulo: 'Un lugar tranquilo, con tiempo para vos.',
-    texto:
-      'En LuGia cada turno dura entre 45 minutos y 1 hora, para que puedas preguntar todo lo que quieras y entender cada paso del tratamiento.',
+    texto: 'En LuGia cada turno dura entre 45 minutos y 1 hora, para que puedas preguntar todo lo que quieras y entender cada paso del tratamiento.',
     imagen: '/fotos/sala-de-espera.webp',
     alt: 'Sala de espera del consultorio LuGia',
-    puntos: [
-      'Turnos de 45 minutos a 1 hora',
-      'Atención a niños y adultos',
-    ],
+    puntos: ['Turnos de 45 minutos a 1 hora', 'Atención a niños y adultos'],
   },
 
   galeria: null,

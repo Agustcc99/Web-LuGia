@@ -63,10 +63,7 @@ export default function PreAdmision() {
         </Aparecer>
 
         {/* El formulario no lleva Aparecer: si se llega con el botón "Pedir turno" tiene que estar ya visible */}
-        <div
-          id="formulario-turno"
-          className="rounded-[26px] border border-linea bg-fondo px-5 py-6 shadow-[0_32px_64px_-32px_rgba(15,23,42,0.2)] sm:rounded-[32px] sm:p-10"
-        >
+        <div id="formulario-turno" className="rounded-[26px] border border-linea bg-fondo px-5 py-6 shadow-[0_32px_64px_-32px_rgba(15,23,42,0.2)] sm:rounded-[32px] sm:p-10">
           <Progreso paso={paso} />
 
           <AnimatePresence mode="wait" initial={false}>

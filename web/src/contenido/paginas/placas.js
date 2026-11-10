@@ -1,13 +1,14 @@
 // Textos de /placas-de-bruxismo. Se revisan con docs/PAGINA-PLACAS-Y-FERULAS.md: si la Od. Luciana cambia algo, se cambia en los dos lugares.
+/** @type {import('../tipos.js').PaginaTratamiento} */
 export const placas = {
   ruta: '/placas-de-bruxismo',
   tratamiento: 'Placas de bruxismo y férulas',
   otroNombre: 'Placas de relajación',
   formaFotos: 'cuenco',
   seo: {
+    prioridad: 0.5, // peso de la página en el sitemap (la principal es 1.0)
     titulo: 'Placas de bruxismo y férulas para ATM en Córdoba | LuGia',
-    descripcion:
-      'Placas rígidas y blandas a medida para quien aprieta o rechina los dientes, y férulas para ATM. Od. Luciana Gianello (MP 7700), Jardín Horizonte, Córdoba.',
+    descripcion: 'Placas rígidas y blandas a medida para quien aprieta o rechina los dientes, y férulas para ATM. Od. Luciana Gianello (MP 7700), Jardín Horizonte, Córdoba.',
     imagen: '/fotos/sillon.webp',
   },
   gama: 'malva',

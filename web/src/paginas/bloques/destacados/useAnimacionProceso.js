@@ -10,9 +10,7 @@ export function useAnimacionProceso(lista) {
       pasos.forEach((paso) => (paso.dataset.encendido = 'si'))
       return
     }
-    const disparadores = pasos.map((paso) =>
-      ScrollTrigger.create({ trigger: paso, start: 'top 82%', once: true, onEnter: () => (paso.dataset.encendido = 'si') }),
-    )
+    const disparadores = pasos.map((paso) => ScrollTrigger.create({ trigger: paso, start: 'top 82%', once: true, onEnter: () => (paso.dataset.encendido = 'si') }))
     return () => disparadores.forEach((disparador) => disparador.kill())
   }, [lista])
 }

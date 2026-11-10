@@ -22,4 +22,12 @@ export const dibujos = {
   dienteConEnciaChico: DienteConEnciaChico,
   implanteJuntoADiente: ImplanteJuntoADiente,
 }
-export const fondos = { conducto: LineaConducto, destellosChicos: DestellosChicos, ejeConMarcas: EjeConMarcas, formasRedondeadas: FormasRedondeadas, lineaEnCapas: LineaEnCapas, ondasSuaves: OndasSuaves, zigzagSuave: ZigzagSuave }
+export const fondos = {
+  conducto: LineaConducto,
+  destellosChicos: DestellosChicos,
+  ejeConMarcas: EjeConMarcas,
+  formasRedondeadas: FormasRedondeadas,
+  lineaEnCapas: LineaEnCapas,
+  ondasSuaves: OndasSuaves,
+  zigzagSuave: ZigzagSuave,
+}

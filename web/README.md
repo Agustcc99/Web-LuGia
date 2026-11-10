@@ -69,12 +69,28 @@ src/
    └─ medicion.js        Google Analytics y Píxel de Meta
 ```
 
+## Revisar y probar
+
+- `npm run revisar`: ESLint (variables sin uso, imports rotos, errores con los hooks) y el formato de Prettier.
+- `npm run formatear`: acomoda el formato solo.
+- `npm run probar`: corre las pruebas. Antes hay que correr `npm run build`, porque prueban lo compilado.
+  - `pruebas/unidad/`: el texto del pedido de turno. No necesitan navegador.
+  - `pruebas/navegador/`: completan el pedido de turno con datos inventados, en compu y en celular, y recorren todas las páginas del sitemap. Usan el Edge de Windows. No mandan nada: WhatsApp y Analytics quedan interceptados.
+
+La forma de los datos de una página está descrita en `contenido/tipos.js`: el editor la usa para autocompletar.
+
 ## Sumar una página de tratamiento
 
-`npm run build` genera un HTML propio por cada entrada de `contenido/paginas/indice.js`, con el texto ya escrito en el código fuente (`dist/endodoncia.html` se sirve en `/endodoncia`, sin barra final). Para sumar otra:
+`npm run build` genera un HTML propio por cada entrada de `contenido/paginas/indice.js`, con el texto ya escrito en el código fuente (`dist/endodoncia.html` se sirve en `/endodoncia`, sin barra final). La principal (`dist/index.html`) sale igual, con su texto adentro, y el sitemap (`dist/sitemap.xml`) se arma solo con todas las direcciones.
+
+Antes de generar, `paginas/comprobar.js` revisa el contenido: si falta un título, una foto no está en `public/`, un link no lleva a ninguna página o se pide un dibujo, fondo, forma o bloque que no existe, la compilación se corta y dice dónde está el problema.
+
+Como el HTML se arma al compilar, lo que necesita el navegador (`window`, `localStorage`) va dentro de un `useEffect`, nunca al dibujar el componente.
+
+Para sumar otra:
 
 1. Crear `contenido/paginas/<servicio>.js` a partir de `endodoncia.js` y sumarlo en `contenido/paginas/indice.js`.
-2. Agregar la dirección a `public/sitemap.xml`.
+2. Ponerle `seo.prioridad` (su peso en el sitemap, de 0.5 a 0.8). El sitemap no se toca a mano.
 3. Si hace falta, sumar `enlace` y `enlaceAyuda` a su tarjeta en `contenido/sitio.js → servicios`. Si el tratamiento es parte de otra tarjeta, usar `enlacesEnTexto` (una lista de `{ texto, ruta }`), que convierte esas partes de la descripción en links, en el orden en que aparecen.
 4. Crear `paginas/dibujos/<servicio>.jsx` con su dibujo y su fondo, y sumarlos en `paginas/dibujos/indice.js`.
 5. Si la portada pide un tono nuevo (`portada.tono`), sumarlo a `tonos` en `paginas/bloques/PortadaTratamiento.jsx`, con contraste de 4.5:1 o más.

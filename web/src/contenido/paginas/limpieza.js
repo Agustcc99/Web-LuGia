@@ -1,9 +1,11 @@
 // Textos de /limpieza-dental. Se revisan con docs/PAGINA-LIMPIEZA-DENTAL.md: si la Od. Luciana cambia algo, se cambia en los dos lugares.
+/** @type {import('../tipos.js').PaginaTratamiento} */
 export const limpieza = {
   ruta: '/limpieza-dental',
   tratamiento: 'Limpieza dental',
   otroNombre: 'Limpieza de dientes',
   seo: {
+    prioridad: 0.5, // peso de la página en el sitemap (la principal es 1.0)
     titulo: 'Limpieza dental en Córdoba | LuGia',
     descripcion: 'Limpieza dental con ultrasonido, pulido y flúor, también en adultos. Od. Luciana Gianello (MP 7700), Jardín Horizonte, Córdoba. Turnos por WhatsApp.',
     imagen: '/fotos/equipamiento.webp',

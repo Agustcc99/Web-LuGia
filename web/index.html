@@ -15,7 +15,15 @@
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+    <!-- Las fuentes se cargan sin frenar el dibujo de la página: primero se ve el texto con la letra del sistema y enseguida cambia. -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" /></noscript>
+    <style>
+      /* Alto de la barra de arriba desde el primer momento, para que el contenido no salte al cargar. */
+      :root { --alto-header: 68px; }
+      @media (min-width: 48rem) { :root { --alto-header: 84px; } }
+    </style>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dentist", "name": "Consultorio Odontológico LuGia", "url": "https://lugia.com.ar/", "image": "https://lugia.com.ar/fotos/sillon.webp", "hasMap": "https://www.google.com/maps?cid=11538471926762461128", "description": "Consultorio odontológico de la Od. Luciana Gianello: endodoncia y odontología general.", "telephone": "+5493513938777", "email": "lucygianello@gmail.com", "address": {"@type": "PostalAddress", "streetAddress": "Pública 6 3753", "addressLocality": "Córdoba", "addressRegion": "Córdoba", "postalCode": "X5014PNB", "addressCountry": "AR"}, "employee": {"@type": "Person", "name": "Od. Luciana Gianello", "jobTitle": "Odontóloga", "identifier": "MP 7700"}, "paymentAccepted": "Efectivo, transferencia, tarjetas", "sameAs": ["https://www.google.com/maps?cid=11538471926762461128"], "geo": {"@type": "GeoCoordinates", "latitude": -31.4569977, "longitude": -64.156729}}</script>
   </head>
   <body>

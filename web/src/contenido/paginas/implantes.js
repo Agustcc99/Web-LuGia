@@ -1,10 +1,12 @@
 // Textos de /implantes. Se revisan con docs/PAGINA-IMPLANTES.md: si la Od. Luciana cambia algo, se cambia en los dos lugares.
 // Cuidado: el implante y los injertos los hace otro profesional. Acá nunca se dice que los hace la Od. Luciana.
+/** @type {import('../tipos.js').PaginaTratamiento} */
 export const implantes = {
   ruta: '/implantes',
   tratamiento: 'Implantes',
   otroNombre: 'Implantes dentales',
   seo: {
+    prioridad: 0.5, // peso de la página en el sitemap (la principal es 1.0)
     titulo: 'Implantes dentales en Córdoba | LuGia',
     descripcion: 'Coronas, puentes y prótesis sobre implantes con la Od. Luciana Gianello (MP 7700). El implante lo coloca otro profesional, en el consultorio. Córdoba.',
     imagen: '/fotos/sillon.webp',

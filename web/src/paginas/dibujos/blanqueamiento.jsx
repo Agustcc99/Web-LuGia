@@ -5,7 +5,8 @@ import { gsap, sinMovimiento } from '@/utilidades/gsap.js'
 const estrella = (x, y, radio) => `M${x} ${y - radio}Q${x} ${y} ${x + radio} ${y}Q${x} ${y} ${x} ${y + radio}Q${x} ${y} ${x - radio} ${y}Q${x} ${y} ${x} ${y - radio}Z`
 
 // Contorno del diente de frente. El esmalte es el trazo grueso de afuera, y la dentina, lo que queda adentro.
-export const contornoDiente = 'M70 28C86 14 104 22 115 28C126 22 144 14 160 28C174 42 170 70 160 88C154 98 154 112 148 124C144 132 138 130 136 122C133 112 126 104 115 104C104 104 97 112 94 122C92 130 86 132 82 124C76 112 76 98 70 88C60 70 56 42 70 28Z'
+export const contornoDiente =
+  'M70 28C86 14 104 22 115 28C126 22 144 14 160 28C174 42 170 70 160 88C154 98 154 112 148 124C144 132 138 130 136 122C133 112 126 104 115 104C104 104 97 112 94 122C92 130 86 132 82 124C76 112 76 98 70 88C60 70 56 42 70 28Z'
 
 // Los brillos de cada versión del dibujo: lugar y tamaño.
 const brillosGrande = [

@@ -8,6 +8,7 @@ import Inclinar from '@/piezas/Inclinar.jsx'
 import { anclaSeccion, botonPrimario, botonSecundario, contenedor } from '@/utilidades/estilos.js'
 import { curva } from '@/utilidades/movimiento.js'
 import { enlacePedirTurno, enlaceWhatsapp } from '@/utilidades/whatsapp.js'
+import { versionesFoto } from '@/utilidades/fotos.js'
 
 // "La profesional": foto en arco, nombre, especialidad, matrícula bien visible, frase y formación.
 export default function Profesional() {
@@ -32,6 +33,7 @@ export default function Profesional() {
             />
             <img
               src={imagen}
+              {...versionesFoto(imagen, '(min-width: 448px) 400px, 100vw')}
               alt={`${nombre}, ${especialidad}`}
               loading="lazy"
               className="relative aspect-[22/29] w-full rounded-t-[999px] rounded-b-[28px] object-cover object-[50%_70%]"
@@ -42,9 +44,7 @@ export default function Profesional() {
         {/* Datos de la profesional */}
         <Aparecer efecto="texto" retraso={1}>
           <p className="hidden text-sm font-semibold tracking-[0.14em] text-brand uppercase md:block">{etiqueta}</p>
-          <h2 className="font-display text-4xl leading-[1.1] font-bold tracking-[-0.03em] text-texto md:mt-4 md:text-[52px] md:leading-[1.08]">
-            {nombre}
-          </h2>
+          <h2 className="font-display text-4xl leading-[1.1] font-bold tracking-[-0.03em] text-texto md:mt-4 md:text-[52px] md:leading-[1.08]">{nombre}</h2>
           <EspecialidadYMatricula />
           {frase && (
             <blockquote className="mt-7 flex gap-3 sm:mt-9 sm:gap-4">

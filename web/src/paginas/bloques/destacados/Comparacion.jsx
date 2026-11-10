@@ -41,7 +41,10 @@ export default function Comparacion({ destacado }) {
               )
             })}
             {separador && (
-              <span aria-hidden="true" className="absolute top-1/2 left-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[3px] border-superficie bg-brand-oscuro font-display text-lg font-bold text-sobre-brand">
+              <span
+                aria-hidden="true"
+                className="absolute top-1/2 left-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[3px] border-superficie bg-brand-oscuro font-display text-lg font-bold text-sobre-brand"
+              >
                 {separador}
               </span>
             )}

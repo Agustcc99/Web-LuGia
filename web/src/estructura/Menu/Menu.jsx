@@ -38,7 +38,7 @@ export default function Menu({ inicio = '', children }) {
         <nav ref={barra} className={`${contenedor} flex h-[68px] items-center justify-between gap-6 md:h-[84px]`}>
           {/* Logo y nombre */}
           <a href={inicio || '#'} className="flex min-w-0 items-center gap-2.5 font-display font-bold tracking-[-0.01em]">
-                        {sitio.logoIcono && (
+            {sitio.logoIcono && (
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white shadow-[0_6px_16px_-6px_rgba(0,0,0,0.4)] md:h-12 md:w-12">
                 <LogoAnimado src={sitio.logoIcono} className="h-9 w-9 md:h-10 md:w-10" />
               </span>

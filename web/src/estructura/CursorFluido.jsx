@@ -17,18 +17,7 @@ export default function CursorFluido({ gama }) {
 
   return (
     <Suspense fallback={null}>
-      <SplashCursor
-        theme="light"
-        rainbow={false}
-        colors={colores}
-        colorSpeed={0.6}
-        size={0.6}
-        trail={0.6}
-        quality="low"
-        intro={false}
-        touchTrail={false}
-        zIndex={30}
-      />
+      <SplashCursor theme="light" rainbow={false} colors={colores} colorSpeed={0.6} size={0.6} trail={0.6} quality="low" intro={false} touchTrail={false} zIndex={30} />
     </Suspense>
   )
 }

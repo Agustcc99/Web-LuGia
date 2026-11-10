@@ -1,9 +1,11 @@
 // Textos de /blanqueamiento-dental. Se revisan con docs/PAGINA-BLANQUEAMIENTO.md: si la Od. Luciana cambia algo, se cambia en los dos lugares.
+/** @type {import('../tipos.js').PaginaTratamiento} */
 export const blanqueamiento = {
   ruta: '/blanqueamiento-dental',
   tratamiento: 'Blanqueamiento dental',
   otroNombre: 'Blanqueamiento de dientes',
   seo: {
+    prioridad: 0.5, // peso de la página en el sitemap (la principal es 1.0)
     titulo: 'Blanqueamiento dental en Córdoba | LuGia',
     descripcion: 'Blanqueamiento dental en consultorio o en casa, previa revisión, también en dientes con conducto. Od. Luciana Gianello (MP 7700), Jardín Horizonte, Córdoba.',
     imagen: '/fotos/sala-de-espera.webp',
@@ -100,12 +102,28 @@ export const blanqueamiento = {
     enlace: 'Ver toda su formación',
   },
   preguntas: [
-    { pregunta: '¿Es lo mismo una limpieza que un blanqueamiento?', respuesta: 'No. La limpieza saca el sarro y la placa de los dientes; el blanqueamiento aclara su color. Se pueden hacer los dos, y el orden lo vemos en la consulta.' },
-    { pregunta: '¿Da sensibilidad?', respuesta: 'Algunas personas sienten sensibilidad después. Por eso, antes de empezar vemos cuánta tenés: si es mucha, no lo recomendamos. Si aparece, te indicamos flúor o pastas desensibilizantes.' },
-    { pregunta: '¿Qué es la dieta blanca?', respuesta: 'Son comidas y bebidas que no manchan, como arroz, pollo, pastas o leche. La indicamos por unos días después del blanqueamiento y te explicamos cómo seguir.' },
+    {
+      pregunta: '¿Es lo mismo una limpieza que un blanqueamiento?',
+      respuesta: 'No. La limpieza saca el sarro y la placa de los dientes; el blanqueamiento aclara su color. Se pueden hacer los dos, y el orden lo vemos en la consulta.',
+    },
+    {
+      pregunta: '¿Da sensibilidad?',
+      respuesta:
+        'Algunas personas sienten sensibilidad después. Por eso, antes de empezar vemos cuánta tenés: si es mucha, no lo recomendamos. Si aparece, te indicamos flúor o pastas desensibilizantes.',
+    },
+    {
+      pregunta: '¿Qué es la dieta blanca?',
+      respuesta: 'Son comidas y bebidas que no manchan, como arroz, pollo, pastas o leche. La indicamos por unos días después del blanqueamiento y te explicamos cómo seguir.',
+    },
     { pregunta: '¿Qué tono van a tener mis dientes?', respuesta: 'No prometemos un tono: depende de cada persona y de cada diente. En la consulta te contamos qué se puede esperar en tu caso.' },
-    { pregunta: '¿Se puede blanquear un diente con conducto que se oscureció?', respuesta: 'Sí, lo hacemos. Si todavía no te hicieron el conducto, en la página de endodoncia está explicado cómo es el tratamiento.' },
-    { pregunta: '¿Y los arreglos o las coronas que ya tengo?', respuesta: 'No cambian de color con el blanqueamiento. Si tenés alguno a la vista, lo vemos antes de empezar. Qué conviene hacer con ellos lo definimos en la consulta.' },
+    {
+      pregunta: '¿Se puede blanquear un diente con conducto que se oscureció?',
+      respuesta: 'Sí, lo hacemos. Si todavía no te hicieron el conducto, en la página de endodoncia está explicado cómo es el tratamiento.',
+    },
+    {
+      pregunta: '¿Y los arreglos o las coronas que ya tengo?',
+      respuesta: 'No cambian de color con el blanqueamiento. Si tenés alguno a la vista, lo vemos antes de empezar. Qué conviene hacer con ellos lo definimos en la consulta.',
+    },
     { pregunta: '¿Cuánto sale?', respuesta: 'Se informa en la consulta, cuando ya te revisamos y vimos cuál de las dos maneras conviene. La atención es particular, sin obras sociales.' },
   ],
   otrosTratamientos: {

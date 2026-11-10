@@ -1,13 +1,14 @@
 // Textos de /endodoncia. Se revisan con docs/PAGINA-ENDODONCIA.md: si la Od. Luciana cambia algo, se cambia en los dos lugares.
+/** @type {import('../tipos.js').PaginaTratamiento} */
 export const endodoncia = {
   ruta: '/endodoncia',
   tratamiento: 'Endodoncia',
   otroNombre: 'Tratamiento de conducto',
   formaFotos: 'capsula',
   seo: {
+    prioridad: 0.8, // peso de la página en el sitemap (la principal es 1.0)
     titulo: 'Endodoncia y tratamiento de conducto en Córdoba | LuGia',
-    descripcion:
-      'Tratamiento de conducto con la Od. Luciana Gianello (MP 7700), más de 20 años de experiencia en endodoncia. Jardín Horizonte, Córdoba. Turnos por WhatsApp.',
+    descripcion: 'Tratamiento de conducto con la Od. Luciana Gianello (MP 7700), más de 20 años de experiencia en endodoncia. Jardín Horizonte, Córdoba. Turnos por WhatsApp.',
     imagen: '/fotos/equipamiento.webp',
   },
   gama: 'durazno',
@@ -39,11 +40,17 @@ export const endodoncia = {
   cuando: {
     etiqueta: 'Señales y causas',
     titulo: 'Cuándo hace falta',
-    texto: 'Hace falta cuando la pulpa está inflamada o en proceso de necrosis, es decir, cuando ese tejido se va muriendo. Suele pasar por caries muy profundas o golpes. Lo define la revisión en la consulta, donde también vemos si el diente se puede conservar.',
+    texto:
+      'Hace falta cuando la pulpa está inflamada o en proceso de necrosis, es decir, cuando ese tejido se va muriendo. Suele pasar por caries muy profundas o golpes. Lo define la revisión en la consulta, donde también vemos si el diente se puede conservar.',
     listas: [
       {
         titulo: 'Señales para consultar',
-        elementos: ['Dolor al masticar o al tocar el diente', 'Molestia con el frío o el calor que sigue un rato después', 'Encía hinchada o sensible, o un granito en la encía', 'Un diente que se oscureció'],
+        elementos: [
+          'Dolor al masticar o al tocar el diente',
+          'Molestia con el frío o el calor que sigue un rato después',
+          'Encía hinchada o sensible, o un granito en la encía',
+          'Un diente que se oscureció',
+        ],
       },
       {
         titulo: 'Causas frecuentes',
@@ -57,8 +64,14 @@ export const endodoncia = {
     titulo: 'Cómo es la atención',
     pasos: [
       { titulo: 'Pedís tu turno', texto: 'Nos escribís por WhatsApp o completás el pedido de turno. Te pasamos los días libres y confirmamos el que te quede mejor.' },
-      { titulo: 'Revisamos el diente', texto: 'Hacemos la radiografía en el consultorio y te explicamos qué tiene el diente y qué opciones hay antes de empezar. Podés preguntar todo lo que quieras.' },
-      { titulo: 'Hacemos el tratamiento', texto: 'Trabajamos con anestesia local y hacemos endodoncia mecanizada. Sacamos la pulpa dañada, limpiamos y desinfectamos el interior del diente, y lo rellenamos y sellamos.' },
+      {
+        titulo: 'Revisamos el diente',
+        texto: 'Hacemos la radiografía en el consultorio y te explicamos qué tiene el diente y qué opciones hay antes de empezar. Podés preguntar todo lo que quieras.',
+      },
+      {
+        titulo: 'Hacemos el tratamiento',
+        texto: 'Trabajamos con anestesia local y hacemos endodoncia mecanizada. Sacamos la pulpa dañada, limpiamos y desinfectamos el interior del diente, y lo rellenamos y sellamos.',
+      },
       { titulo: 'Protegemos el diente', texto: 'Después hace falta restaurarlo con un arreglo o una corona. Te explicamos qué conviene en tu caso y cómo cuidarlo.' },
     ],
   },

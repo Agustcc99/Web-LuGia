@@ -4,6 +4,7 @@ import Aparecer from '@/piezas/Aparecer.jsx'
 import Inclinar from '@/piezas/Inclinar.jsx'
 import Titulo from '@/piezas/Titulo.jsx'
 import { anclaSeccion, contenedor } from '@/utilidades/estilos.js'
+import { versionesFoto } from '@/utilidades/fotos.js'
 
 // "El consultorio": igual que "La profesional" pero espejado (texto a la izquierda, foto en arco a la derecha).
 export default function Nosotros() {
@@ -31,13 +32,11 @@ export default function Nosotros() {
         {imagen && (
           <Aparecer efecto="subir" retraso={1} className="relative mx-auto w-full max-w-[460px] md:order-none">
             <Inclinar max={5} className="relative">
-              <div aria-hidden="true" className="absolute bottom-5 -left-5 h-[200px] w-[200px] rounded-full bg-superficie sm:bottom-10 sm:-left-9 sm:h-[300px] sm:w-[300px] sm:[transform:translateZ(-30px)]" />
-              <img
-                src={imagen}
-                alt={alt}
-                loading="lazy"
-                className="relative aspect-[23/29] w-full rounded-t-[999px] rounded-b-[28px] object-cover object-[50%_60%]"
+              <div
+                aria-hidden="true"
+                className="absolute bottom-5 -left-5 h-[200px] w-[200px] rounded-full bg-superficie sm:bottom-10 sm:-left-9 sm:h-[300px] sm:w-[300px] sm:[transform:translateZ(-30px)]"
               />
+              <img src={imagen} {...versionesFoto(imagen)} alt={alt} loading="lazy" className="relative aspect-[23/29] w-full rounded-t-[999px] rounded-b-[28px] object-cover object-[50%_60%]" />
             </Inclinar>
           </Aparecer>
         )}

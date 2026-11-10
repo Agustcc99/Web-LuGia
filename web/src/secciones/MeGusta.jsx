@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { m } from 'motion/react'
 import { sitio } from '@/contenido/sitio.js'
 import Icono from '@/piezas/Icono.jsx'
@@ -22,7 +22,9 @@ function yaTocado() {
 // Se recuerda en el navegador de cada persona; no hay contador público ni se guarda nada en un servidor.
 export default function MeGusta() {
   const { pregunta, gracias, texto, boton, ayuda, urlResenas } = sitio.corazon
-  const [tocado, setTocado] = useState(yaTocado)
+  // Arranca vacío, igual que en el HTML ya armado, y recién en el navegador se fija si ya se había tocado.
+  const [tocado, setTocado] = useState(false)
+  useEffect(() => setTocado(yaTocado()), [])
   const destino = urlResenas ?? sitio.contacto.urlMapa
 
   function tocar() {
@@ -62,11 +64,7 @@ export default function MeGusta() {
             {/* Latido: suave y repetido mientras espera; un pulso grande al tocar */}
             <m.span
               animate={tocado ? { scale: [1, 1.4, 0.92, 1.12, 1] } : { scale: [1, 1.14, 1, 1.09, 1] }}
-              transition={
-                tocado
-                  ? { duration: 0.7, ease: curva.entrar }
-                  : { duration: 1.1, ease: 'easeInOut', repeat: Infinity, repeatDelay: 1.4 }
-              }
+              transition={tocado ? { duration: 0.7, ease: curva.entrar } : { duration: 1.1, ease: 'easeInOut', repeat: Infinity, repeatDelay: 1.4 }}
               className="flex"
             >
               <Icono nombre="corazon" className={`h-9 w-9 ${tocado ? 'fill-current' : ''}`} />
@@ -75,13 +73,7 @@ export default function MeGusta() {
 
           <div className="mt-5 flex flex-col items-center">
             <p className="max-w-md text-base leading-relaxed text-suave sm:text-[17px]">{texto}</p>
-            <a
-              href={destino}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => registrarEvento('resena_google_click')}
-              className={`${botonPrimario} mt-5 min-h-[56px]`}
-            >
+            <a href={destino} target="_blank" rel="noopener noreferrer" onClick={() => registrarEvento('resena_google_click')} className={`${botonPrimario} mt-5 min-h-[56px]`}>
               {boton}
               <Icono nombre="flecha" className={flecha} />
             </a>

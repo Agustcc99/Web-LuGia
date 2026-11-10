@@ -1,7 +1,7 @@
 import { sitio } from '@/contenido/sitio.js'
 
 // Título, descripción y datos estructurados de cada página de tratamiento.
-const DOMINIO = 'https://lugia.com.ar'
+export const DOMINIO = 'https://lugia.com.ar'
 
 const escapar = (texto) => texto.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 

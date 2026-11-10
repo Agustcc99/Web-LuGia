@@ -1,16 +1,19 @@
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import Envoltura from '@/estructura/Envoltura.jsx'
 import { iniciarMedicion } from '@/utilidades/medicion.js'
-import { iniciarBotones } from '@/utilidades/botones.js'
 
-// Estadísticas de visitas y efectos de los botones: se activan una sola vez, antes de dibujar la página.
+// Estadísticas de visitas: se activan una sola vez, antes de dibujar la página.
 iniciarMedicion()
-iniciarBotones()
 
-createRoot(document.getElementById('root')).render(
+const raiz = document.getElementById('root')
+const pagina = (
   <Envoltura>
     <App />
-  </Envoltura>,
+  </Envoltura>
 )
+// Publicada, la página ya viene con el HTML armado y React solo le suma las animaciones y los botones.
+// Con `npm run dev` la raíz está vacía y se dibuja de cero.
+if (raiz.hasChildNodes()) hydrateRoot(raiz, pagina)
+else createRoot(raiz).render(pagina)

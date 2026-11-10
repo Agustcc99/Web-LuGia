@@ -35,7 +35,9 @@ export default function Resenas() {
               <article key={resena.autor} className="rounded-[22px] bg-superficie p-[22px] sm:rounded-[28px] sm:p-7">
                 <Estrellas />
                 <p className="mt-4 leading-relaxed text-texto">“{resena.texto}”</p>
-                <p className="mt-4 text-sm font-semibold text-suave">{resena.autor} · {fuente}</p>
+                <p className="mt-4 text-sm font-semibold text-suave">
+                  {resena.autor} · {fuente}
+                </p>
               </article>
             ))}
           </div>

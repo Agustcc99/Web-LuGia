@@ -43,7 +43,13 @@ export default function Reparto({ destacado }) {
               const colores = coloresColumna[paso.columna]
               return (
                 // Cada paso ocupa su propia fila, para que el orden se lea de arriba hacia abajo.
-                <Aparecer as="li" key={paso.titulo} efecto="subir" style={{ gridRowStart: i + 1 }} className={`relative rounded-[22px] border bg-fondo p-[22px] pl-[76px] sm:rounded-[28px] ${colores.tarjeta} ${lugarEnCompu[paso.columna]}`}>
+                <Aparecer
+                  as="li"
+                  key={paso.titulo}
+                  efecto="subir"
+                  style={{ gridRowStart: i + 1 }}
+                  className={`relative rounded-[22px] border bg-fondo p-[22px] pl-[76px] sm:rounded-[28px] ${colores.tarjeta} ${lugarEnCompu[paso.columna]}`}
+                >
                   <span aria-hidden="true" className={`absolute top-[22px] left-[22px] flex h-11 w-11 items-center justify-center rounded-full font-display text-lg font-bold ${colores.numero}`}>
                     {i + 1}
                   </span>

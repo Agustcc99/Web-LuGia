@@ -1,13 +1,14 @@
 // Textos de /protesis-y-coronas. Se revisan con docs/PAGINA-PROTESIS-Y-CORONAS.md: si la Od. Luciana cambia algo, se cambia en los dos lugares.
+/** @type {import('../tipos.js').PaginaTratamiento} */
 export const protesis = {
   ruta: '/protesis-y-coronas',
   tratamiento: 'Prótesis, pernos y coronas',
   otroNombre: 'Coronas y prótesis dentales',
   formaFotos: 'esquina',
   seo: {
+    prioridad: 0.7, // peso de la página en el sitemap (la principal es 1.0)
     titulo: 'Coronas, pernos y prótesis dentales en Córdoba | LuGia',
-    descripcion:
-      'Coronas de zirconio, porcelana y disilicato de litio, pernos y prótesis fijas o removibles. Od. Luciana Gianello (MP 7700), Jardín Horizonte, Córdoba.',
+    descripcion: 'Coronas de zirconio, porcelana y disilicato de litio, pernos y prótesis fijas o removibles. Od. Luciana Gianello (MP 7700), Jardín Horizonte, Córdoba.',
     imagen: '/fotos/sillon.webp',
   },
   gama: 'ciruela',
@@ -32,15 +33,18 @@ export const protesis = {
     parrafos: [
       {
         resaltado: 'Una corona',
-        texto: 'es una pieza hecha a medida que cubre toda la parte visible de un diente, para protegerlo y devolverle su forma. Las hacemos de porcelana, zirconio y disilicato de litio. Las que más recomendamos son las de zirconio.',
+        texto:
+          'es una pieza hecha a medida que cubre toda la parte visible de un diente, para protegerlo y devolverle su forma. Las hacemos de porcelana, zirconio y disilicato de litio. Las que más recomendamos son las de zirconio.',
       },
       {
         resaltado: 'Un perno',
-        texto: 'es una pieza fina que va dentro de la raíz de un diente que ya tiene el conducto hecho. Ayuda a sostener lo que se reconstruye encima, y sobre eso va la corona. Solo se usa cuando queda poco diente arriba.',
+        texto:
+          'es una pieza fina que va dentro de la raíz de un diente que ya tiene el conducto hecho. Ayuda a sostener lo que se reconstruye encima, y sobre eso va la corona. Solo se usa cuando queda poco diente arriba.',
       },
       {
         resaltado: 'Una prótesis',
-        texto: 'repone los dientes que faltan. La fija queda firme en la boca. La removible se saca para limpiarla, puede ser parcial o completa, y la hacemos en acrílico o Flex. No derivamos ningún tipo de prótesis a otro consultorio.',
+        texto:
+          'repone los dientes que faltan. La fija queda firme en la boca. La removible se saca para limpiarla, puede ser parcial o completa, y la hacemos en acrílico o Flex. No derivamos ningún tipo de prótesis a otro consultorio.',
       },
     ],
   },
@@ -51,7 +55,12 @@ export const protesis = {
     listas: [
       {
         titulo: 'Corona o perno',
-        elementos: ['Un diente con conducto al que le queda poco tejido sano', 'Un diente muy roto o gastado', 'Un arreglo tan grande que ya debilitó el diente', 'Un implante que todavía no tiene su corona'],
+        elementos: [
+          'Un diente con conducto al que le queda poco tejido sano',
+          'Un diente muy roto o gastado',
+          'Un arreglo tan grande que ya debilitó el diente',
+          'Un implante que todavía no tiene su corona',
+        ],
       },
       {
         titulo: 'Prótesis',
@@ -98,7 +107,10 @@ export const protesis = {
         titulo: 'Antes de empezar',
         pasos: [
           { titulo: 'Pedís tu turno', texto: 'Contanos si venís por un diente con conducto, por una corona o por una prótesis. Por WhatsApp o con el pedido de turno, y coordinamos el día.' },
-          { titulo: 'Revisamos y te proponemos', texto: 'Miramos el diente o el espacio donde falta y, si hace falta, hacemos una radiografía. Te explicamos las opciones y los valores antes de empezar.' },
+          {
+            titulo: 'Revisamos y te proponemos',
+            texto: 'Miramos el diente o el espacio donde falta y, si hace falta, hacemos una radiografía. Te explicamos las opciones y los valores antes de empezar.',
+          },
         ],
       },
       {
@@ -117,22 +129,39 @@ export const protesis = {
   },
   experiencia: {
     etiqueta: 'La experiencia de la Od. Luciana',
-    texto: 'Los pernos y las coronas son, junto con los conductos, lo que más hace. También hace prótesis fijas y removibles, y coronas sobre implantes. Estos son algunos de sus cursos sobre el tema:',
+    texto:
+      'Los pernos y las coronas son, junto con los conductos, lo que más hace. También hace prótesis fijas y removibles, y coronas sobre implantes. Estos son algunos de sus cursos sobre el tema:',
     cursos: ['Prótesis Fija (FUNDACOS)', 'Prótesis libre de metal (UNC)'],
     enlace: 'Ver toda su formación',
   },
   preguntas: [
-    { pregunta: '¿Cuánto sale una corona o una prótesis?', respuesta: 'Se informa en la consulta, cuando ya vimos qué necesitás y con qué material conviene hacerlo. La atención es particular, sin obras sociales.' },
+    {
+      pregunta: '¿Cuánto sale una corona o una prótesis?',
+      respuesta: 'Se informa en la consulta, cuando ya vimos qué necesitás y con qué material conviene hacerlo. La atención es particular, sin obras sociales.',
+    },
     {
       pregunta: '¿Cuántos turnos lleva una corona?',
-      respuesta: 'Por lo general, dos: en el primero preparamos el diente y tomamos la impresión, y en el segundo colocamos la corona. Si además hace falta un perno, o si es una prótesis, te lo decimos después de revisarte.',
+      respuesta:
+        'Por lo general, dos: en el primero preparamos el diente y tomamos la impresión, y en el segundo colocamos la corona. Si además hace falta un perno, o si es una prótesis, te lo decimos después de revisarte.',
     },
     { pregunta: '¿Me voy con el diente descubierto mientras hacen la corona?', respuesta: 'No. Te colocamos una corona provisoria hasta que la definitiva esté lista.' },
-    { pregunta: '¿De qué material conviene la corona?', respuesta: 'Hacemos coronas de porcelana, zirconio y disilicato de litio. Las que más recomendamos son las de zirconio. En la consulta vemos cuál conviene para ese diente.' },
-    { pregunta: '¿Todo diente con conducto necesita un perno?', respuesta: 'No. Se usa cuando queda poco diente arriba y hace falta sostener la reconstrucción. Lo vemos con el diente y la radiografía.' },
+    {
+      pregunta: '¿De qué material conviene la corona?',
+      respuesta: 'Hacemos coronas de porcelana, zirconio y disilicato de litio. Las que más recomendamos son las de zirconio. En la consulta vemos cuál conviene para ese diente.',
+    },
+    {
+      pregunta: '¿Todo diente con conducto necesita un perno?',
+      respuesta: 'No. Se usa cuando queda poco diente arriba y hace falta sostener la reconstrucción. Lo vemos con el diente y la radiografía.',
+    },
     { pregunta: '¿Me pueden arreglar una prótesis que ya tengo?', respuesta: 'Sí, reparamos y ajustamos prótesis viejas. Primero la revisamos y te decimos qué se puede hacer.' },
-    { pregunta: '¿Qué es una prótesis Flex?', respuesta: 'Es una prótesis removible hecha con un material flexible. La otra opción que hacemos es la de acrílico. En la consulta vemos cuál conviene en tu caso.' },
-    { pregunta: '¿Hacen coronas sobre implantes?', respuesta: 'Sí, hacemos la corona, el puente o la prótesis que van sobre el implante. El implante lo coloca otro profesional, en nuestro consultorio.' },
+    {
+      pregunta: '¿Qué es una prótesis Flex?',
+      respuesta: 'Es una prótesis removible hecha con un material flexible. La otra opción que hacemos es la de acrílico. En la consulta vemos cuál conviene en tu caso.',
+    },
+    {
+      pregunta: '¿Hacen coronas sobre implantes?',
+      respuesta: 'Sí, hacemos la corona, el puente o la prótesis que van sobre el implante. El implante lo coloca otro profesional, en nuestro consultorio.',
+    },
   ],
   otrosTratamientos: {
     texto: '¿Todavía no te hiciste el conducto?',

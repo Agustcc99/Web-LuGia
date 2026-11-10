@@ -1,0 +1,11 @@
+dist
+.ssr
+node_modules
+test-results
+playwright-report
+package-lock.json
+public
+src/piezas/SplashCursor.jsx
+src/piezas/SplashCursor.css
+src/piezas/GooeyNav.jsx
+src/piezas/GooeyNav.css

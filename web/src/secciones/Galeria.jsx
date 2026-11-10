@@ -30,12 +30,7 @@ export default function Galeria() {
               transition={{ ...resorte.llegar, delay: (i % 3) * escalonado, opacity: { duration: 0.4 } }}
               className={`group relative overflow-hidden rounded-[22px] bg-superficie ${formas[i] ?? ''}`}
             >
-              <img
-                src={img.src}
-                alt={img.alt}
-                loading="lazy"
-                className="h-full w-full object-cover transition duration-500 ease-entrar group-hover:scale-[1.03]"
-              />
+              <img src={img.src} alt={img.alt} loading="lazy" className="h-full w-full object-cover transition duration-500 ease-entrar group-hover:scale-[1.03]" />
               <figcaption className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/75 to-transparent p-4 text-sm text-white opacity-0 transition duration-280 ease-tocar group-hover:opacity-100">
                 {img.alt}
               </figcaption>

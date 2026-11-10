@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react'
 import { sitio } from '@/contenido/sitio.js'
+import { iniciarBotones } from '@/utilidades/botones.js'
 import { raizPagina } from '@/utilidades/estilos.js'
 import { useIrASeccion } from '@/hooks/useIrASeccion.js'
 
@@ -27,11 +29,17 @@ import MeGusta from '@/secciones/MeGusta.jsx'
 
 export default function App() {
   useIrASeccion()
+  // El HTML ya viene armado (scripts/generar-paginas.mjs). El efecto del mouse y el de los botones arrancan recién en el navegador.
+  const [enNavegador, setEnNavegador] = useState(false)
+  useEffect(() => {
+    setEnNavegador(true)
+    iniciarBotones()
+  }, [])
 
   return (
     <div className={raizPagina}>
       <Lunares />
-      <CursorFluido />
+      {enNavegador && <CursorFluido />}
       <ProgresoScroll />
       <Menu />
       <main>

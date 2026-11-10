@@ -8,7 +8,7 @@ export const botonSecundario = `${base} border-[1.5px] border-borde-fuerte bg-fo
 // Para usar sobre fondo vino.
 export const botonClaro = `${base} bg-fondo text-brand hover:bg-tinte`
 export const botonContorno = `${base} border-[1.5px] border-resalte text-white hover:bg-white/10`
-export const botonWhatsapp =`${base} bg-whatsapp font-bold text-sobre-whatsapp hover:brightness-95`
+export const botonWhatsapp = `${base} bg-whatsapp font-bold text-sobre-whatsapp hover:brightness-95`
 
 // La flecha de los botones se corre 3 px al pasar el mouse.
 export const flecha = 'h-5 w-5 transition-transform duration-160 ease-tocar group-hover:translate-x-[3px]'

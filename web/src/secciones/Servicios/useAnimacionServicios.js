@@ -26,11 +26,7 @@ export function useAnimacionServicios(grilla) {
       })
 
       tarjetas.forEach((t, i) =>
-        gsap.fromTo(
-          t.querySelector('[data-numero]'),
-          { y: 0 },
-          { y: 28 + (i % 3) * 14, ease: 'none', scrollTrigger: { trigger: t, start: 'top bottom', end: 'bottom top', scrub: true } },
-        ),
+        gsap.fromTo(t.querySelector('[data-numero]'), { y: 0 }, { y: 28 + (i % 3) * 14, ease: 'none', scrollTrigger: { trigger: t, start: 'top bottom', end: 'bottom top', scrub: true } }),
       )
 
       tarjetas.forEach((t) => {
@@ -42,7 +38,17 @@ export function useAnimacionServicios(grilla) {
         const llenar = (x, y) => {
           t.classList.add('activa')
           gsap.fromTo(relleno, { clipPath: `circle(0px at ${x}px ${y}px)` }, { clipPath: `circle(160% at ${x}px ${y}px)`, duration: 0.7, ease: 'power3.out', overwrite: true })
-          gsap.fromTo(icono, { y: 0, rotate: 0 }, { keyframes: [{ y: -10, rotate: -12, duration: 0.18 }, { y: 0, rotate: 0, duration: 0.6, ease: 'elastic.out(1, 0.4)' }], overwrite: true })
+          gsap.fromTo(
+            icono,
+            { y: 0, rotate: 0 },
+            {
+              keyframes: [
+                { y: -10, rotate: -12, duration: 0.18 },
+                { y: 0, rotate: 0, duration: 0.6, ease: 'elastic.out(1, 0.4)' },
+              ],
+              overwrite: true,
+            },
+          )
           gsap.to(linea, { scaleX: 1, duration: 0.6, ease: 'power3.out' })
           gsap.to(t, { y: -8, duration: 0.4, ease: 'power3.out' })
         }

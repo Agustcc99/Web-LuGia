@@ -17,10 +17,7 @@ export default function PreguntasFrecuentes({ lista = sitio.preguntas.lista, id 
         <Aparecer efecto="texto">
           <Titulo etiqueta={etiqueta}>{titulo}</Titulo>
           <p className="mt-4 hidden text-lg text-suave md:block">{texto}</p>
-          <a
-            {...enlaceWhatsapp()}
-            className="group mt-6 hidden items-center gap-2 text-[17px] font-semibold text-brand hover:text-brand-oscuro md:inline-flex"
-          >
+          <a {...enlaceWhatsapp()} className="group mt-6 hidden items-center gap-2 text-[17px] font-semibold text-brand hover:text-brand-oscuro md:inline-flex">
             {sitio.comun.escribinos}
             <Icono nombre="flecha" className={flecha} />
           </a>

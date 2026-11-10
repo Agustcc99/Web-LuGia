@@ -6,6 +6,7 @@ import Titulo from '@/piezas/Titulo.jsx'
 import { contenedor, flecha } from '@/utilidades/estilos.js'
 import { RUTA_PRINCIPAL } from '@/utilidades/enlaces.js'
 import { formasFoto } from '@/utilidades/formasFoto.js'
+import { versionesFoto } from '@/utilidades/fotos.js'
 
 const parrafo = 'text-lg leading-relaxed text-suave'
 
@@ -19,7 +20,15 @@ export default function Experiencia({ experiencia, formaFoto = 'arco' }) {
     <section className="overflow-hidden bg-superficie/70 py-10 sm:py-14">
       <div className={`${contenedor} grid items-center gap-8 md:grid-cols-[5fr_6fr] md:gap-20`}>
         <Aparecer efecto="subir" className="order-2 mx-auto w-full max-w-[400px] md:order-none md:mx-0">
-          <img src={imagen} alt={`${nombre}, ${especialidad}`} width="1000" height="1778" loading="lazy" className={`${formaFoto === 'circulo' ? 'aspect-square' : 'aspect-[22/29]'} w-full ${marcoFoto.marco} object-cover object-[50%_70%]`} />
+          <img
+            src={imagen}
+            {...versionesFoto(imagen, '(min-width: 448px) 400px, 100vw')}
+            alt={`${nombre}, ${especialidad}`}
+            width="1000"
+            height="1778"
+            loading="lazy"
+            className={`${formaFoto === 'circulo' ? 'aspect-square' : 'aspect-[22/29]'} w-full ${marcoFoto.marco} object-cover object-[50%_70%]`}
+          />
         </Aparecer>
         <div>
           <Titulo etiqueta={experiencia.etiqueta}>{nombre}</Titulo>
@@ -35,7 +44,10 @@ export default function Experiencia({ experiencia, formaFoto = 'arco' }) {
               </li>
             ))}
           </ul>
-          <a href={`${RUTA_PRINCIPAL}#profesional`} className="group mt-5 inline-flex min-h-11 items-center gap-2 text-[17px] font-semibold text-brand underline underline-offset-4 hover:text-brand-oscuro">
+          <a
+            href={`${RUTA_PRINCIPAL}#profesional`}
+            className="group mt-5 inline-flex min-h-11 items-center gap-2 text-[17px] font-semibold text-brand underline underline-offset-4 hover:text-brand-oscuro"
+          >
             {experiencia.enlace}
             <Icono nombre="flecha" className={flecha} />
           </a>

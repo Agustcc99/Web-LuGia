@@ -75,7 +75,13 @@ export function PasoCuando({ datos, setDatos, cambiar, atras, siguiente }) {
       <EncabezadoPaso numero={3} pregunta={textos.pregunta} />
       <div className="mt-5 grid grid-cols-3 gap-2 sm:gap-2.5">
         {FRANJAS.map((franja) => (
-          <button key={franja} type="button" aria-pressed={datos.franja === franja} onClick={() => setDatos({ ...datos, franja })} className={`${chip(datos.franja === franja)} px-2 text-[15px] leading-tight sm:px-5 sm:text-base`}>
+          <button
+            key={franja}
+            type="button"
+            aria-pressed={datos.franja === franja}
+            onClick={() => setDatos({ ...datos, franja })}
+            className={`${chip(datos.franja === franja)} px-2 text-[15px] leading-tight sm:px-5 sm:text-base`}
+          >
             {franja}
           </button>
         ))}
@@ -94,15 +100,7 @@ export function PasoCuando({ datos, setDatos, cambiar, atras, siguiente }) {
       <label className={`${etiquetaCampo} mt-6`} htmlFor="nota-turno">
         {textos.nota}
       </label>
-      <textarea
-        id="nota-turno"
-        value={datos.nota}
-        onChange={cambiar('nota')}
-        maxLength={140}
-        rows={2}
-        placeholder={textos.notaEjemplo}
-        className={`${campo} mt-1.5 h-auto py-3`}
-      />
+      <textarea id="nota-turno" value={datos.nota} onChange={cambiar('nota')} maxLength={140} rows={2} placeholder={textos.notaEjemplo} className={`${campo} mt-1.5 h-auto py-3`} />
       <p className="mt-1.5 text-sm text-suave">{textos.aviso}</p>
       <Navegacion atras={atras} siguiente={siguiente} habilitado />
     </div>

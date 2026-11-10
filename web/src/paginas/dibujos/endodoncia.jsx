@@ -11,9 +11,20 @@ export function Diente({ alt, partes }) {
   ]
   return (
     <svg viewBox="0 0 330 250" role="img" aria-label={alt} className="mx-auto w-full max-w-[460px]">
-      <path d="M50 42C72 18 98 34 115 42C132 34 158 18 180 42C197 62 190 100 174 128C164 150 166 196 154 226C148 240 136 234 134 218C131 196 127 170 115 170C103 170 99 196 96 218C94 234 82 240 76 226C64 196 66 150 56 128C40 100 33 62 50 42Z" strokeWidth="3" className="fill-fondo stroke-brand" />
-      <path d="M62 50C78 36 100 46 115 54C130 46 152 36 168 50C180 66 174 98 160 122C150 142 152 186 146 214C143 222 141 218 140 210C137 182 134 154 115 154C96 154 93 182 90 210C89 218 87 222 84 214C78 186 80 142 70 122C56 98 50 66 62 50Z" strokeWidth="1.5" className="fill-superficie stroke-arco" />
-      <path d="M92 76C102 68 128 68 138 76C146 90 138 112 130 124C128 150 130 178 134 204L128 204C124 176 122 150 115 144C108 150 106 176 102 204L96 204C100 178 102 150 100 124C92 112 84 90 92 76Z" className="fill-acento" />
+      <path
+        d="M50 42C72 18 98 34 115 42C132 34 158 18 180 42C197 62 190 100 174 128C164 150 166 196 154 226C148 240 136 234 134 218C131 196 127 170 115 170C103 170 99 196 96 218C94 234 82 240 76 226C64 196 66 150 56 128C40 100 33 62 50 42Z"
+        strokeWidth="3"
+        className="fill-fondo stroke-brand"
+      />
+      <path
+        d="M62 50C78 36 100 46 115 54C130 46 152 36 168 50C180 66 174 98 160 122C150 142 152 186 146 214C143 222 141 218 140 210C137 182 134 154 115 154C96 154 93 182 90 210C89 218 87 222 84 214C78 186 80 142 70 122C56 98 50 66 62 50Z"
+        strokeWidth="1.5"
+        className="fill-superficie stroke-arco"
+      />
+      <path
+        d="M92 76C102 68 128 68 138 76C146 90 138 112 130 124C128 150 130 178 134 204L128 204C124 176 122 150 115 144C108 150 106 176 102 204L96 204C100 178 102 150 100 124C92 112 84 90 92 76Z"
+        className="fill-acento"
+      />
       {partes.map((parte, i) => (
         <g key={parte}>
           <line x1={lineas[i].x1} y1={lineas[i].y1} x2="222" y2={lineas[i].y2} strokeWidth="1" className="stroke-acento" />

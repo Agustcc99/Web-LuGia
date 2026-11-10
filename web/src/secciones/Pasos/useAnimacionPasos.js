@@ -18,18 +18,18 @@ export function useAnimacionPasos(raiz) {
         const nodos = gsap.utils.toArray('[data-nodo]')
 
         // Línea que se llena con el scroll
-        gsap.fromTo(
-          '[data-progreso]',
-          horizontal ? { scaleX: 0 } : { scaleY: 0 },
-          { scaleX: 1, scaleY: 1, ease: 'none', scrollTrigger: { trigger: '[data-lista]', start: 'top 70%', end: 'bottom 60%', scrub: 0.6 } },
-        )
+        gsap.fromTo('[data-progreso]', horizontal ? { scaleX: 0 } : { scaleY: 0 }, {
+          scaleX: 1,
+          scaleY: 1,
+          ease: 'none',
+          scrollTrigger: { trigger: '[data-lista]', start: 'top 70%', end: 'bottom 60%', scrub: 0.6 },
+        })
 
         pasos.forEach((p, i) => {
           const nodo = nodos[i]
           const tarjeta = p.querySelector('[data-tarjeta]')
           const icono = p.querySelector('[data-icono]')
-          const girarIcono = (duracion, retraso = 0) =>
-            gsap.fromTo(icono, { rotate: 0 }, { rotate: 360, duration: duracion, ease: 'back.out(1.6)', delay: retraso })
+          const girarIcono = (duracion, retraso = 0) => gsap.fromTo(icono, { rotate: 0 }, { rotate: 360, duration: duracion, ease: 'back.out(1.6)', delay: retraso })
 
           // La tarjeta entra desde abajo, con un giro leve (el del medio entra derecho)
           gsap.from(tarjeta, {

@@ -92,7 +92,9 @@ export default function Pie({ inicio = '' }) {
           </div>
         </details>
         {sitio.aviso && <p className="mt-5 border-t border-white/15 pt-5 text-sm leading-normal">{sitio.aviso}</p>}
-        <p className="mt-5 text-sm">© {new Date().getFullYear()} · {pie.derechos}</p>
+        <p className="mt-5 text-sm">
+          © {new Date().getFullYear()} · {pie.derechos}
+        </p>
         {medicionActiva && <p className="mt-1 text-xs">{pie.cookies}</p>}
       </div>
     </footer>

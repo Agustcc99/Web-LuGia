@@ -5,7 +5,11 @@ import { gsap, sinMovimiento } from '@/utilidades/gsap.js'
 // Los trazos están calcados del PNG (con el mismo recorte cuadrado que logo-centrado.png).
 // Con "reducir movimiento" se muestra el logo directo.
 const trazos = [
-  { d: 'M245 378C215 378 205 330 197 262C190 205 152 170 152 118C152 70 185 35 235 36C275 37 295 65 320 80C345 90 375 50 410 38C450 30 475 70 465 115C452 165 390 195 345 218C305 240 290 270 280 320C272 365 265 378 245 378Z', color: '#7a1f3d', ancho: 16 },
+  {
+    d: 'M245 378C215 378 205 330 197 262C190 205 152 170 152 118C152 70 185 35 235 36C275 37 295 65 320 80C345 90 375 50 410 38C450 30 475 70 465 115C452 165 390 195 345 218C305 240 290 270 280 320C272 365 265 378 245 378Z',
+    color: '#7a1f3d',
+    ancho: 16,
+  },
   { d: 'M306 52C345 50 385 70 408 88C370 92 330 80 306 52Z', color: '#7a1f3d', ancho: 12 },
   { d: 'M250 68C215 65 188 100 182 150', color: '#b98a2e', ancho: 16 },
   { d: 'M322 265C345 270 352 320 362 355C375 395 410 380 420 330C425 280 430 230 468 158', color: '#b98a2e', ancho: 16 },

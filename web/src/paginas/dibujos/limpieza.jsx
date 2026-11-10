@@ -41,7 +41,13 @@ export function DienteConEncia({ alt, partes }) {
         <g key={punto.x}>
           <circle data-sarro cx={punto.x} cy={punto.y} r="5" className="fill-acento" />
           {/* Dos arcos que salen del punto, como la vibración del ultrasonido. */}
-          <path data-onda={i} d={`M${punto.x + 9} ${punto.y - 6}q6 6 0 12M${punto.x + 15} ${punto.y - 10}q10 10 0 20`} strokeWidth="1.5" strokeLinecap="round" className="fill-none stroke-acento opacity-0" />
+          <path
+            data-onda={i}
+            d={`M${punto.x + 9} ${punto.y - 6}q6 6 0 12M${punto.x + 15} ${punto.y - 10}q10 10 0 20`}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            className="fill-none stroke-acento opacity-0"
+          />
         </g>
       ))}
       <path d={encia} className="fill-tinte" />

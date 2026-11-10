@@ -9,7 +9,8 @@ export function iniciarMedicion() {
   if (!medicionActiva) return
 
   if (ga4) {
-    cargarScript(`https://www.googletagmanager.com/gtag/js?id=${ga4}`)
+    // El script de Google pesa: se baja cuando la página ya cargó y está tranquila. Los eventos de mientras tanto quedan en la cola.
+    cargarCuandoHayaCalma(`https://www.googletagmanager.com/gtag/js?id=${ga4}`)
     window.dataLayer = window.dataLayer || []
     // gtag necesita el objeto `arguments`, no un array: no cambiar por (...args).
     window.gtag = function () {
@@ -45,6 +46,13 @@ export function iniciarMedicion() {
 
 // Registra un evento en GA4. Nunca se mandan datos del paciente, solo el nombre del evento.
 export const registrarEvento = (nombre) => window.gtag?.('event', nombre)
+
+// Espera a que termine de cargar la página y a que el navegador tenga un momento libre (a lo sumo 3 segundos más).
+function cargarCuandoHayaCalma(src) {
+  const cargar = () => (window.requestIdleCallback ? window.requestIdleCallback(() => cargarScript(src), { timeout: 3000 }) : setTimeout(() => cargarScript(src), 1500))
+  if (document.readyState === 'complete') cargar()
+  else window.addEventListener('load', cargar, { once: true })
+}
 
 function cargarScript(src) {
   const s = document.createElement('script')

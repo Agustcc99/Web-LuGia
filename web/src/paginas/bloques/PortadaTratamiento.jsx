@@ -6,6 +6,7 @@ import { formasFoto } from '@/utilidades/formasFoto.js'
 import { separarFinalDelTitulo } from '@/utilidades/textos.js'
 import { enlacePedirTurno, enlaceWhatsapp } from '@/utilidades/whatsapp.js'
 import { dibujos } from '../dibujos/indice.js'
+import { versionesFoto } from '@/utilidades/fotos.js'
 
 // Colores de la portada según el tono que pida cada tratamiento (portada.tono). Si no pide ninguno, es vino.
 const tonos = {
@@ -111,7 +112,9 @@ export default function PortadaTratamiento({ portada, formaFoto = 'arco' }) {
 
       <div className={`${contenedor} relative grid items-center ${columnas}`}>
         <div className={`flex flex-col ${centrada ? 'items-center' : ''}`}>
-          <p className={`inline-flex items-center gap-2.5 ${centrada ? 'self-center' : 'self-start'} rounded-full ${colores.etiqueta} py-1.5 pr-4 pl-2 text-sm leading-snug font-semibold text-brand sm:text-[15px]`}>
+          <p
+            className={`inline-flex items-center gap-2.5 ${centrada ? 'self-center' : 'self-start'} rounded-full ${colores.etiqueta} py-1.5 pr-4 pl-2 text-sm leading-snug font-semibold text-brand sm:text-[15px]`}
+          >
             <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${colores.circuloIcono}`}>
               <Icono nombre={icono} className="h-5 w-5" />
             </span>
@@ -149,9 +152,12 @@ export default function PortadaTratamiento({ portada, formaFoto = 'arco' }) {
             {marcoFoto.adorno === 'burbujas' && <span aria-hidden="true" className="absolute -top-4 -left-5 h-20 w-20 rounded-full bg-resalte" />}
             {marcoFoto.adorno === 'bloque' && <span aria-hidden="true" className={`absolute inset-0 translate-x-4 translate-y-4 ${marcoFoto.marco} bg-resalte`} />}
             {/* Tres rayas que asoman por un costado, como las vueltas de una rosca. */}
-            {marcoFoto.adorno === 'rosca' && <span aria-hidden="true" className="absolute top-[38%] -left-5 h-16 w-14 bg-[repeating-linear-gradient(to_bottom,var(--color-resalte)_0_8px,transparent_8px_28px)]" />}
+            {marcoFoto.adorno === 'rosca' && (
+              <span aria-hidden="true" className="absolute top-[38%] -left-5 h-16 w-14 bg-[repeating-linear-gradient(to_bottom,var(--color-resalte)_0_8px,transparent_8px_28px)]" />
+            )}
             <img
               src={imagen}
+              {...versionesFoto(imagen)}
               alt={alt}
               width="1086"
               height="1448"

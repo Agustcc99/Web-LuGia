@@ -7,6 +7,7 @@ import { useTextoGsap } from '@/hooks/useTextoGsap.js'
 import { flecha } from '@/utilidades/estilos.js'
 import { formasFoto } from '@/utilidades/formasFoto.js'
 import { enlaceWhatsapp } from '@/utilidades/whatsapp.js'
+import { versionesFoto } from '@/utilidades/fotos.js'
 
 // Cierre de la página: un bloque vino con el llamado a pedir turno y una foto al costado.
 // Sin props muestra el cierre de la página principal. Con `formaFoto` (utilidades/formasFoto.js), la foto va enmarcada con esa forma.
@@ -30,7 +31,9 @@ export default function Cierre({ datos = sitio.cierre, formaFoto }) {
       <div className="mx-auto w-full max-w-6xl px-3 sm:px-8">
         <Aparecer efecto="subir" className="grid overflow-hidden rounded-[32px] bg-brand text-sobre-brand md:min-h-[480px] md:grid-cols-[6fr_5fr] md:rounded-[40px]">
           <div className="order-2 flex flex-col justify-center px-[22px] pt-8 pb-7 md:order-none md:px-16 md:py-[72px]">
-            <h2 ref={h2} className="font-display text-[32px] leading-[1.12] font-bold tracking-[-0.03em] text-balance md:text-[50px] md:leading-[1.08]">{titulo}</h2>
+            <h2 ref={h2} className="font-display text-[32px] leading-[1.12] font-bold tracking-[-0.03em] text-balance md:text-[50px] md:leading-[1.08]">
+              {titulo}
+            </h2>
             <p className="mt-3.5 max-w-[460px] text-[17px] leading-relaxed text-white/90 md:mt-5 md:text-[19px]">{texto}</p>
             <a
               {...enlaceWhatsapp()}
@@ -42,14 +45,14 @@ export default function Cierre({ datos = sitio.cierre, formaFoto }) {
           </div>
           {imagen && !marcoFoto && (
             <div className="relative order-1 h-60 overflow-hidden rounded-bl-[140px] md:order-none md:h-auto md:rounded-bl-none md:rounded-tl-[240px]">
-              <m.img src={imagen} alt="" loading="lazy" style={{ y: yFoto }} className={claseFoto} />
+              <m.img src={imagen} {...versionesFoto(imagen)} alt="" loading="lazy" style={{ y: yFoto }} className={claseFoto} />
             </div>
           )}
           {/* Con `formaFoto`, la foto va enmarcada con esa forma, dentro del bloque. */}
           {imagen && marcoFoto && (
             <div className="order-1 flex items-center justify-center px-8 pt-8 md:order-none md:p-12">
               <div className={`relative w-full max-w-[260px] overflow-hidden md:max-w-[360px] ${marcoFoto.proporcion} ${marcoFoto.marco} ${marcoFoto.sinBorde ? '' : 'border-4 border-resalte'}`}>
-                <m.img src={imagen} alt="" loading="lazy" style={{ y: yFoto }} className={claseFoto} />
+                <m.img src={imagen} {...versionesFoto(imagen)} alt="" loading="lazy" style={{ y: yFoto }} className={claseFoto} />
               </div>
             </div>
           )}

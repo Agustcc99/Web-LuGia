@@ -45,21 +45,10 @@ export default function Inclinar({ as = 'div', max = 6, className = '', children
   }
 
   const perspectiva = { transformPerspective: 900, transformStyle: 'preserve-3d' }
-  const estilo = conMouseActivo
-    ? { rotateX, rotateY, ...perspectiva }
-    : porScroll
-      ? { rotateX: scrollRotateX, rotateY: scrollRotateY, ...perspectiva }
-      : undefined
+  const estilo = conMouseActivo ? { rotateX, rotateY, ...perspectiva } : porScroll ? { rotateX: scrollRotateX, rotateY: scrollRotateY, ...perspectiva } : undefined
 
   return (
-    <Elemento
-      ref={ref}
-      onPointerMove={conMouseActivo ? seguirMouse : undefined}
-      onPointerLeave={conMouseActivo ? volverAlCentro : undefined}
-      style={estilo}
-      className={className}
-      {...props}
-    >
+    <Elemento ref={ref} onPointerMove={conMouseActivo ? seguirMouse : undefined} onPointerLeave={conMouseActivo ? volverAlCentro : undefined} style={estilo} className={className} {...props}>
       {children}
     </Elemento>
   )
